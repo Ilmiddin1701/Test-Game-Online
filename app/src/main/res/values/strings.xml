@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Test-Game</string>
     <string name="_428_500">428 + 500 = ?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="user_name">User name</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="app_logo">app_logo</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="welcome">Welcome</string>
 </resources>

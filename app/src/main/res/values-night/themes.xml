@@ -1,6 +1,6 @@
 <resources>
     <style name="Base.Theme.TestGame" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:statusBarColor">#314C70</item>
         <item name="android:navigationBarColor">@color/black</item>
     </style>
 </resources>
