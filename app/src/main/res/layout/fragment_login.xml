@@ -68,9 +68,8 @@
                     android:drawablePadding="10dp"
                     android:drawableTint="#4D4D4D"
                     android:hint="@string/user_name"
-                    android:lines="1"
-                    android:maxLength="25"
-                    android:maxLines="1" />
+                    android:imeOptions="actionDone"
+                    android:maxLength="25" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout

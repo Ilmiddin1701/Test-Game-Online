@@ -24,12 +24,16 @@ class LoginFragment : Fragment() {
             val hideLogoAnim = AnimationUtils.loadAnimation(context, R.anim.hide_logo_anim)
             constraint1.startAnimation(openAnim)
             appLogo.startAnimation(showLogoAnim)
+            btnLogin.setOnClickListener {
+                findNavController().navigate(R.id.homeFragment)
+            }
             tvRegister.setOnClickListener {
                 constraint1.startAnimation(exitAnim)
                 appLogo.startAnimation(hideLogoAnim)
                 exitAnim.setAnimationListener(object : Animation.AnimationListener {
                     override fun onAnimationStart(p0: Animation?) {}
                     override fun onAnimationEnd(p0: Animation?) {
+                        findNavController().popBackStack()
                         findNavController().navigate(R.id.registerFragment)
                     }
                     override fun onAnimationRepeat(p0: Animation?) {}
