@@ -18,11 +18,15 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding.apply {
-            val openAnim = AnimationUtils.loadAnimation(requireContext(), R.anim.open_anim)
-            val exitAnim = AnimationUtils.loadAnimation(requireContext(), R.anim.exit_anim)
+            val openAnim = AnimationUtils.loadAnimation(context, R.anim.open_anim)
+            val exitAnim = AnimationUtils.loadAnimation(context, R.anim.exit_anim)
+            val showLogoAnim = AnimationUtils.loadAnimation(context, R.anim.show_logo_anim)
+            val hideLogoAnim = AnimationUtils.loadAnimation(context, R.anim.hide_logo_anim)
             constraint1.startAnimation(openAnim)
+            appLogo.startAnimation(showLogoAnim)
             tvRegister.setOnClickListener {
                 constraint1.startAnimation(exitAnim)
+                appLogo.startAnimation(hideLogoAnim)
                 exitAnim.setAnimationListener(object : Animation.AnimationListener {
                     override fun onAnimationStart(p0: Animation?) {}
                     override fun onAnimationEnd(p0: Animation?) {

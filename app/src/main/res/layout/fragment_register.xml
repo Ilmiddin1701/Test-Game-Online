@@ -8,6 +8,7 @@
     tools:context=".Fragments.Register.RegisterFragment">
 
     <ImageView
+        android:id="@+id/appLogo"
         android:layout_width="230dp"
         android:layout_height="100dp"
         android:contentDescription="@string/app_logo"

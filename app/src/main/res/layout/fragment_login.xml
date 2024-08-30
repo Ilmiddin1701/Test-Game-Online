@@ -8,6 +8,7 @@
     tools:context=".Fragments.Register.LoginFragment">
 
     <ImageView
+        android:id="@+id/appLogo"
         android:layout_width="230dp"
         android:layout_height="100dp"
         android:contentDescription="@string/app_logo"
@@ -82,10 +83,10 @@
                     android:id="@+id/edtPassword"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="@string/password"
                     android:drawableStart="@drawable/ic_password"
                     android:drawablePadding="10dp"
                     android:drawableTint="#4D4D4D"
+                    android:hint="@string/password"
                     android:lines="1"
                     android:maxLength="15"
                     android:maxLines="1" />
