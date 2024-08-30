@@ -25,7 +25,16 @@ class LoginFragment : Fragment() {
             constraint1.startAnimation(openAnim)
             appLogo.startAnimation(showLogoAnim)
             btnLogin.setOnClickListener {
-                findNavController().navigate(R.id.homeFragment)
+                constraint1.startAnimation(exitAnim)
+                appLogo.startAnimation(hideLogoAnim)
+                exitAnim.setAnimationListener(object : Animation.AnimationListener {
+                    override fun onAnimationStart(p0: Animation?) {}
+                    override fun onAnimationEnd(p0: Animation?) {
+                        findNavController().popBackStack()
+                        findNavController().navigate(R.id.homeFragment)
+                    }
+                    override fun onAnimationRepeat(p0: Animation?) {}
+                })
             }
             tvRegister.setOnClickListener {
                 constraint1.startAnimation(exitAnim)
