@@ -66,7 +66,7 @@ class RegisterFragment : Fragment() {
                     val user = User(userId, edtFirstName.text.toString(), edtLastName.text.toString(), edtUserName.text.toString(), edtPassword.text.toString())
                     reference.child(userId).setValue(user)
                     findNavController().popBackStack()
-                    findNavController().navigate(R.id.homeFragment)
+                    findNavController().navigate(R.id.containerFragment)
                 } else {
                     Toast.makeText(context, "Data is not fully entered!", Toast.LENGTH_SHORT).show()
                 }

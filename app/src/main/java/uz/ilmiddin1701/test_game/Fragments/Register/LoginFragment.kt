@@ -31,7 +31,7 @@ class LoginFragment : Fragment() {
                     override fun onAnimationStart(p0: Animation?) {}
                     override fun onAnimationEnd(p0: Animation?) {
                         findNavController().popBackStack()
-                        findNavController().navigate(R.id.homeFragment)
+                        findNavController().navigate(R.id.containerFragment)
                     }
                     override fun onAnimationRepeat(p0: Animation?) {}
                 })

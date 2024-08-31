@@ -15,8 +15,8 @@
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="uz.ilmiddin1701.test_game.Fragments.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/containerFragment"
+        android:name="uz.ilmiddin1701.test_game.Fragments.ContainerFragment"
+        android:label="fragment_container"
+        tools:layout="@layout/fragment_container" />
 </navigation>
