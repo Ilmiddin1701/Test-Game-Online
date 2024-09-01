@@ -19,7 +19,6 @@ import java.util.UUID
 
 class RegisterFragment : Fragment() {
     private val binding by lazy { FragmentRegisterBinding.inflate(layoutInflater) }
-    private lateinit var onBackPressedCallBack: OnBackPressedCallback
     private lateinit var openAnim: Animation
     private lateinit var exitAnim: Animation
     private lateinit var showLogoAnim: Animation
@@ -43,33 +42,29 @@ class RegisterFragment : Fragment() {
             constraint1.startAnimation(openAnim)
             appLogo.startAnimation(showLogoAnim)
 
-            onBackPressedCallBack = object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    binding.constraint1.startAnimation(exitAnim)
-                    binding.appLogo.startAnimation(hideLogoAnim)
-                    exitAnim.setAnimationListener(object : Animation.AnimationListener {
-                        override fun onAnimationStart(p0: Animation?) { }
-                        override fun onAnimationEnd(p0: Animation?) {
-                            findNavController().popBackStack()
-                            findNavController().navigate(R.id.loginFragment)
-                            onBackPressedCallBack.remove()
-                        }
-                        override fun onAnimationRepeat(p0: Animation?) { }
-                    })
-                }
-            }
-            requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressedCallBack)
-
             btnRegister.setOnClickListener {
                 if (edtFirstName.text.toString().isNotBlank() && edtLastName.text.toString().isNotBlank() && edtUserName.text.toString().isNotBlank() && edtPassword.text.toString().isNotBlank()) {
                     val userId = UUID.randomUUID().toString()
-                    val user = User(userId, edtFirstName.text.toString(), edtLastName.text.toString(), edtUserName.text.toString(), edtPassword.text.toString())
+                    val user = User(userId, edtFirstName.text.toString(), edtLastName.text.toString(), edtUserName.text.toString(), edtPassword.text.toString(), null)
                     reference.child(userId).setValue(user)
                     findNavController().popBackStack()
                     findNavController().navigate(R.id.containerFragment)
                 } else {
                     Toast.makeText(context, "Data is not fully entered!", Toast.LENGTH_SHORT).show()
                 }
+            }
+
+            tvLogin.setOnClickListener {
+                constraint1.startAnimation(exitAnim)
+                appLogo.startAnimation(hideLogoAnim)
+                exitAnim.setAnimationListener(object : Animation.AnimationListener {
+                    override fun onAnimationStart(p0: Animation?) {}
+                    override fun onAnimationEnd(p0: Animation?) {
+                        findNavController().popBackStack()
+                        findNavController().navigate(R.id.loginFragment)
+                    }
+                    override fun onAnimationRepeat(p0: Animation?) {}
+                })
             }
         }
         return binding.root
