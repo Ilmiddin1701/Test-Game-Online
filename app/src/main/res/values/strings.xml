@@ -25,4 +25,12 @@
     <string name="selected_tests">selectedTests</string>
     <string name="lord_dev_1701">lord_dev_1701</string>
     <string name="user_image">UserImage</string>
+    <string name="your_level">Your level :</string>
+    <string name="delete_profile">Delete profile</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="log_out">Log out</string>
+    <string name="_30_tests">30 tests</string>
+    <string name="_40_tests">40 tests</string>
+    <string name="_50_tests">50 tests</string>
+    <string name="_20_tests">20 tests</string>
 </resources>
