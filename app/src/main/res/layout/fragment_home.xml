@@ -41,7 +41,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/user_image"
-                android:padding="4dp"
                 android:src="@drawable/ic_user" />
         </com.google.android.material.card.MaterialCardView>
 
@@ -55,7 +54,6 @@
                 android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/o_rinov_ilmiddin"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -64,7 +62,6 @@
                 android:id="@+id/tvUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lord_dev_1701"
                 android:textColor="#D7D7D7"
                 android:textSize="15sp" />
         </LinearLayout>
