@@ -52,5 +52,11 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     //noinspection UseTomlInstead
+    implementation("com.intuit.sdp:sdp-android:1.0.6")
+
+    //noinspection UseTomlInstead
+    implementation("com.intuit.ssp:ssp-android:1.0.6")
+
+    //noinspection UseTomlInstead
     implementation("com.google.code.gson:gson:2.10.1")
 }

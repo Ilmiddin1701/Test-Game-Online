@@ -88,7 +88,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1"
         app:layout_constraintWidth_percent="0.95"
-        app:strokeColor="#ABABAB">
+        app:strokeColor="#FFB700"
+        app:strokeWidth="2dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
@@ -107,223 +108,195 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_11"
+    <RelativeLayout
+        android:id="@+id/relative11"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/white"
-        app:cardElevation="10dp"
-        app:layout_constraintBottom_toTopOf="@id/card_33"
+        android:background="@drawable/selected_style"
+        app:layout_constraintBottom_toTopOf="@id/relative33"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/card_22"
-        app:layout_constraintTop_toBottomOf="@id/guideLine_2"
-        app:strokeColor="#314C70"
-        app:strokeWidth="3dp">
+        app:layout_constraintRight_toLeftOf="@id/relative22"
+        app:layout_constraintTop_toBottomOf="@id/guideLine_2">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imgSelected_1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/selected_tests"
+            android:src="@drawable/ic_selected" />
 
-            <ImageView
-                android:id="@+id/imgSelected_1"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="10dp"
-                android:contentDescription="@string/selected_tests"
-                android:src="@drawable/ic_selected" />
+        <TextView
+            android:id="@+id/tv_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/_20"
+            android:textColor="#314C70"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/tvTest_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="9dp"
+            android:layout_toEndOf="@+id/tv_20"
+            android:text="@string/tests"
+            android:textColor="#314C70"
+            android:textSize="20sp" />
+    </RelativeLayout>
 
-
-            <TextView
-                android:id="@+id/tv_20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginBottom="5dp"
-                android:text="@string/_20"
-                android:textColor="#314C70"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvTest_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginBottom="9dp"
-                android:layout_toEndOf="@+id/tv_20"
-                android:text="@string/tests"
-                android:textColor="#314C70"
-                android:textSize="20sp" />
-        </RelativeLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_22"
+    <RelativeLayout
+        android:id="@+id/relative22"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="6dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="#E4E4E4"
-        app:cardElevation="0dp"
-        app:layout_constraintBottom_toTopOf="@id/card_44"
-        app:layout_constraintLeft_toRightOf="@id/card_11"
+        android:background="@drawable/unselected_style"
+        app:layout_constraintBottom_toTopOf="@id/relative44"
+        app:layout_constraintLeft_toRightOf="@id/relative11"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideLine_2">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imgSelected_2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/selected_tests"
+            android:src="@drawable/ic_selected"
+            android:visibility="invisible" />
 
-            <ImageView
-                android:id="@+id/imgSelected_2"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="10dp"
-                android:contentDescription="@string/selected_tests"
-                android:src="@drawable/ic_selected"
-                android:visibility="invisible" />
+        <TextView
+            android:id="@+id/tv_30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/_30"
+            android:textColor="#767676"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tv_30"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginBottom="5dp"
-                android:text="@string/_30"
-                android:textColor="#767676"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvTest_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="9dp"
+            android:layout_toEndOf="@+id/tv_30"
+            android:text="@string/tests"
+            android:textColor="#767676"
+            android:textSize="20sp" />
+    </RelativeLayout>
 
-            <TextView
-                android:id="@+id/tvTest_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginBottom="9dp"
-                android:layout_toEndOf="@+id/tv_30"
-                android:text="@string/tests"
-                android:textColor="#767676"
-                android:textSize="20sp" />
-        </RelativeLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_33"
+    <RelativeLayout
+        android:id="@+id/relative33"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#E4E4E4"
-        app:cardElevation="0dp"
+        android:background="@drawable/unselected_style"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/card_44"
-        app:layout_constraintTop_toBottomOf="@id/card_11">
+        app:layout_constraintRight_toLeftOf="@id/relative44"
+        app:layout_constraintTop_toBottomOf="@id/relative11">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imgSelected_3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/selected_tests"
+            android:src="@drawable/ic_selected"
+            android:visibility="invisible" />
 
-            <ImageView
-                android:id="@+id/imgSelected_3"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="10dp"
-                android:contentDescription="@string/selected_tests"
-                android:src="@drawable/ic_selected"
-                android:visibility="invisible" />
+        <TextView
+            android:id="@+id/tv_40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/_40"
+            android:textColor="#767676"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tv_40"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginBottom="5dp"
-                android:text="@string/_40"
-                android:textColor="#767676"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvTest_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="9dp"
+            android:layout_toEndOf="@+id/tv_40"
+            android:text="@string/tests"
+            android:textColor="#767676"
+            android:textSize="20sp" />
+    </RelativeLayout>
 
-            <TextView
-                android:id="@+id/tvTest_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginBottom="9dp"
-                android:layout_toEndOf="@+id/tv_40"
-                android:text="@string/tests"
-                android:textColor="#767676"
-                android:textSize="20sp" />
-        </RelativeLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_44"
+    <RelativeLayout
+        android:id="@+id/relative44"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="6dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#E4E4E4"
-        app:cardElevation="0dp"
+        android:background="@drawable/unselected_style"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/card_33"
+        app:layout_constraintLeft_toRightOf="@id/relative33"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_22">
+        app:layout_constraintTop_toBottomOf="@id/relative22">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imgSelected_4"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/selected_tests"
+            android:src="@drawable/ic_selected"
+            android:visibility="invisible" />
 
-            <ImageView
-                android:id="@+id/imgSelected_4"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_margin="10dp"
-                android:contentDescription="@string/selected_tests"
-                android:src="@drawable/ic_selected"
-                android:visibility="invisible" />
+        <TextView
+            android:id="@+id/tv_50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/_50"
+            android:textColor="#767676"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tv_50"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginBottom="5dp"
-                android:text="@string/_50"
-                android:textColor="#767676"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvTest_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginBottom="9dp"
-                android:layout_toEndOf="@+id/tv_50"
-                android:text="@string/tests"
-                android:textColor="#767676"
-                android:textSize="20sp" />
-        </RelativeLayout>
-    </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:id="@+id/tvTest_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="9dp"
+            android:layout_toEndOf="@+id/tv_50"
+            android:text="@string/tests"
+            android:textColor="#767676"
+            android:textSize="20sp" />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,15 @@
 package uz.ilmiddin1701.test_game.Models
 
-class TestLevelData {
+import java.io.Serializable
+
+class TestLevelData: Serializable {
     var levelId: Int? = null
     var yourLevel: Int? = null
     var stars: Int? = null
     var tests: Int? = null
     var testCompleted: Int? = null
     var testCompletedTime: String? = null
+    var isChecked: Boolean = false
 
     constructor()
 
@@ -16,7 +19,8 @@ class TestLevelData {
         stars: Int?,
         tests: Int?,
         testCompleted: Int?,
-        testCompletedTime: String?
+        testCompletedTime: String?,
+        isChecked: Boolean
     ) {
         this.levelId = levelId
         this.yourLevel = yourLevel
@@ -24,5 +28,6 @@ class TestLevelData {
         this.tests = tests
         this.testCompleted = testCompleted
         this.testCompletedTime = testCompletedTime
+        this.isChecked = isChecked
     }
 }
