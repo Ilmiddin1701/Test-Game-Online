@@ -23,7 +23,7 @@
     <string name="profile">Profile</string>
     <string name="levels">Levels</string>
     <string name="selected_tests">selectedTests</string>
-    <string name="lord_dev_1701">lord_dev_1701</string>
+    <string name="lord_dev_1701">\@lord_dev_1701</string>
     <string name="user_image">UserImage</string>
     <string name="your_level">Your level :</string>
     <string name="delete_profile">Delete profile</string>
@@ -33,4 +33,5 @@
     <string name="_40_tests">40 tests</string>
     <string name="_50_tests">50 tests</string>
     <string name="_20_tests">20 tests</string>
+    <string name="level_image">level_image</string>
 </resources>

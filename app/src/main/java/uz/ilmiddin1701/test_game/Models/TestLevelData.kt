@@ -4,7 +4,6 @@ import java.io.Serializable
 
 class TestLevelData: Serializable {
     var levelId: Int? = null
-    var yourLevel: Int? = null
     var stars: Int? = null
     var tests: Int? = null
     var testCompleted: Int? = null
@@ -15,7 +14,6 @@ class TestLevelData: Serializable {
 
     constructor(
         levelId: Int?,
-        yourLevel: Int?,
         stars: Int?,
         tests: Int?,
         testCompleted: Int?,
@@ -23,7 +21,6 @@ class TestLevelData: Serializable {
         isChecked: Boolean
     ) {
         this.levelId = levelId
-        this.yourLevel = yourLevel
         this.stars = stars
         this.tests = tests
         this.testCompleted = testCompleted

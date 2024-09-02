@@ -7,83 +7,6 @@
     android:background="@drawable/bg_1"
     tools:context=".Fragments.LevelsFragment">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/userImageCard"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:backgroundTint="@android:color/transparent"
-        app:cardCornerRadius="75dp"
-        app:layout_constraintBottom_toTopOf="@id/linearLayout"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/white"
-        app:strokeWidth="3dp">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="6dp"
-            android:backgroundTint="@android:color/transparent"
-            app:cardCornerRadius="75dp"
-            app:cardElevation="0dp">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/user_image"
-                android:scaleType="centerCrop"
-                android:src="@drawable/user_image" />
-        </androidx.cardview.widget.CardView>
-    </com.google.android.material.card.MaterialCardView>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        app:layout_constraintBottom_toTopOf="@id/guideLine_1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/userImageCard">
-
-        <TextView
-            android:id="@+id/tvYourLevelText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:text="@string/your_level"
-            android:textColor="#FFB700"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:backgroundTint="@android:color/transparent"
-            app:cardCornerRadius="35dp"
-            app:cardElevation="0dp"
-            app:strokeColor="#FFB700"
-            app:strokeWidth="4dp">
-
-            <TextView
-                android:id="@+id/tvYourLevelCounter"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-        </com.google.android.material.card.MaterialCardView>
-    </LinearLayout>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLine_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
-
     <HorizontalScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -92,7 +15,7 @@
         android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideLine_1">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -111,7 +34,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:backgroundTint="@color/white"
                 android:text="@string/_20_tests"
                 android:textColor="#314C70"
@@ -125,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:backgroundTint="@android:color/transparent"
                 android:text="@string/_30_tests"
                 app:cornerRadius="8dp"
@@ -138,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:backgroundTint="@android:color/transparent"
                 android:text="@string/_40_tests"
                 app:cornerRadius="8dp"
@@ -152,7 +75,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:backgroundTint="@android:color/transparent"
                 android:text="@string/_50_tests"
                 app:cornerRadius="8dp"
@@ -160,6 +83,153 @@
                 app:strokeWidth="2dp" />
         </LinearLayout>
     </HorizontalScrollView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/level_2"
+        android:layout_width="@dimen/_55sdp"
+        android:layout_height="@dimen/_55sdp"
+        android:backgroundTint="@android:color/transparent"
+        app:cardCornerRadius="75dp"
+        app:layout_constraintBottom_toTopOf="@+id/level_image"
+        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/level_1"
+        app:layout_constraintTop_toBottomOf="@id/scrollView"
+        app:layout_constraintVertical_bias="0.83"
+        app:strokeWidth="0dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/user_image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/user_image" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/level_1"
+        android:layout_width="@dimen/_55sdp"
+        android:layout_height="@dimen/_55sdp"
+        android:backgroundTint="@android:color/transparent"
+        app:cardCornerRadius="75dp"
+        app:layout_constraintBottom_toTopOf="@+id/level_image"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scrollView"
+        app:strokeWidth="0dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/user_image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/user_image" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tvLevel1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="@string/lord_dev_1701"
+
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/level_image"
+        app:layout_constraintLeft_toRightOf="@id/level_2"
+        app:layout_constraintRight_toLeftOf="@id/level_3"
+        app:layout_constraintTop_toBottomOf="@id/level_1"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/level_3"
+        android:layout_width="@dimen/_55sdp"
+        android:layout_height="@dimen/_55sdp"
+        android:backgroundTint="@android:color/transparent"
+        app:cardCornerRadius="75dp"
+        app:layout_constraintBottom_toTopOf="@+id/level_image"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintLeft_toRightOf="@id/level_1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scrollView"
+        app:layout_constraintVertical_bias="1"
+        app:strokeWidth="0dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/user_image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/user_image" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <ImageView
+        android:id="@+id/level_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/level_image"
+        android:src="@drawable/level_image"
+        app:layout_constraintBottom_toTopOf="@id/guideLine_1"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintWidth_percent="1" />
+
+    <TextView
+        android:id="@+id/tvLevel2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="@string/lord_dev_1701"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/guideLine_1"
+
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/level_1"
+        app:layout_constraintTop_toBottomOf="@id/level_2"
+        app:layout_constraintVertical_bias="0.13"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <TextView
+        android:id="@+id/tvLevel3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="@string/lord_dev_1701"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/guideLine_1"
+
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toRightOf="@id/level_1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/level_3"
+        app:layout_constraintVertical_bias="0.15"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideLine_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.63" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
@@ -169,6 +239,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scrollView"
+        app:layout_constraintTop_toBottomOf="@id/guideLine_1"
         app:layout_constraintWidth_percent="0.95" />
 </androidx.constraintlayout.widget.ConstraintLayout>

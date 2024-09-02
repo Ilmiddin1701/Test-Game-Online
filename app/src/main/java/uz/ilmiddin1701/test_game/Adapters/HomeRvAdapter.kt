@@ -13,10 +13,10 @@ class HomeRvAdapter(var rvAction: RvAction, private var list: ArrayList<TestLeve
     inner class Vh(var itemRvBinding: ItemLevelBinding) : RecyclerView.ViewHolder(itemRvBinding.root) {
         fun onBind(testLevelData: TestLevelData, position: Int) {
             itemRvBinding.apply {
+                val level = position + 1
+                tvLevel.text = level.toString()
                 if (testLevelData.isChecked) {
-                    val level = position + 1
                     itemVisible.visibility = View.GONE
-                    tvLevel.text = level.toString()
                     root.setOnClickListener {
                         rvAction.itemClick(testLevelData)
                     }
