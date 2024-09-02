@@ -27,8 +27,4 @@ class User : Serializable {
     }
 
     constructor()
-
-    override fun toString(): String {
-        return "User(id=$id, firstName=$firstName, lastName=$lastName, userName=$userName, password=$password, userImage=$userImage)"
-    }
 }
