@@ -19,4 +19,24 @@
         android:name="uz.ilmiddin1701.test_game.Fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/test20Fragment"
+        android:name="uz.ilmiddin1701.test_game.Fragments.Tests.Test20Fragment"
+        android:label="fragment_test20"
+        tools:layout="@layout/fragment_test20" />
+    <fragment
+        android:id="@+id/test30Fragment"
+        android:name="uz.ilmiddin1701.test_game.Fragments.Tests.Test30Fragment"
+        android:label="fragment_test30"
+        tools:layout="@layout/fragment_test30" />
+    <fragment
+        android:id="@+id/test40Fragment"
+        android:name="uz.ilmiddin1701.test_game.Fragments.Tests.Test40Fragment"
+        android:label="fragment_test40"
+        tools:layout="@layout/fragment_test40" />
+    <fragment
+        android:id="@+id/test50Fragment"
+        android:name="uz.ilmiddin1701.test_game.Fragments.Tests.Test50Fragment"
+        android:label="fragment_test50"
+        tools:layout="@layout/fragment_test50" />
 </navigation>

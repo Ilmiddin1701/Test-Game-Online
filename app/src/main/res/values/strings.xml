@@ -34,4 +34,9 @@
     <string name="_50_tests">50 tests</string>
     <string name="_20_tests">20 tests</string>
     <string name="level_image">level_image</string>
+    <string name="answer">Answer</string>
+    <string name="a">A</string>
+    <string name="c">C</string>
+    <string name="b">B</string>
+    <string name="d">D</string>
 </resources>

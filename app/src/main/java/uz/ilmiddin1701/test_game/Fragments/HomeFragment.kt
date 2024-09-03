@@ -1,14 +1,17 @@
 package uz.ilmiddin1701.test_game.Fragments
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -27,6 +30,7 @@ class HomeFragment : Fragment(), HomeRvAdapter.RvAction {
     private lateinit var reference: DatabaseReference
     private lateinit var homeRvAdapter: HomeRvAdapter
     private lateinit var list: ArrayList<TestLevelData>
+    var n = 1
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,6 +65,7 @@ class HomeFragment : Fragment(), HomeRvAdapter.RvAction {
 
             //Get Tests
             tests.observe(viewLifecycleOwner) {
+                n = it
                 reference.child(MySharedPreferences.userId).child("tests")
                     .addValueEventListener(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
@@ -210,6 +215,11 @@ class HomeFragment : Fragment(), HomeRvAdapter.RvAction {
     }
 
     override fun itemClick(testLevelData: TestLevelData) {
-
+        when (n) {
+            1 -> findNavController().navigate(R.id.test20Fragment, bundleOf("testLevelData" to testLevelData))
+            2 -> findNavController().navigate(R.id.test30Fragment, bundleOf("testLevelData" to testLevelData))
+            3 -> findNavController().navigate(R.id.test40Fragment, bundleOf("testLevelData" to testLevelData))
+            4 -> findNavController().navigate(R.id.test50Fragment, bundleOf("testLevelData" to testLevelData))
+        }
     }
 }
