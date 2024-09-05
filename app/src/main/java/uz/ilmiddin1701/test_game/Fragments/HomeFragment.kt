@@ -21,6 +21,7 @@ import uz.ilmiddin1701.test_game.Adapters.HomeRvAdapter
 import uz.ilmiddin1701.test_game.Models.TestLevelData
 import uz.ilmiddin1701.test_game.Models.User
 import uz.ilmiddin1701.test_game.R
+import uz.ilmiddin1701.test_game.Utils.MyData
 import uz.ilmiddin1701.test_game.Utils.MySharedPreferences
 import uz.ilmiddin1701.test_game.databinding.FragmentHomeBinding
 
@@ -41,6 +42,7 @@ class HomeFragment : Fragment(), HomeRvAdapter.RvAction {
         reference = database.getReference("users")
         list = ArrayList()
         binding.apply {
+            MyData.liveData.postValue(true)
             val tests = MutableLiveData<Int>()
             tests.postValue(1)
             homeRvAdapter = HomeRvAdapter(this@HomeFragment, list)

@@ -9,6 +9,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import uz.ilmiddin1701.test_game.R
+import uz.ilmiddin1701.test_game.Utils.MyData
 import uz.ilmiddin1701.test_game.databinding.FragmentContainerBinding
 
 class ContainerFragment : Fragment() {
@@ -19,6 +20,12 @@ class ContainerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding.apply {
+            MyData.liveData.observe(viewLifecycleOwner) {
+                when (it) {
+                    true -> bottomNavigationView.visibility = View.VISIBLE
+                    false -> bottomNavigationView.visibility = View.GONE
+                }
+            }
             // BottomNavigationView connect Fragments
             navHostFragment = childFragmentManager.findFragmentById(R.id.my_navigation_host_1) as NavHostFragment
             val navController = navHostFragment.navController

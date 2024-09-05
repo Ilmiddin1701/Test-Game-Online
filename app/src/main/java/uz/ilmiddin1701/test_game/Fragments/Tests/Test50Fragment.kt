@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import uz.ilmiddin1701.test_game.R
+import uz.ilmiddin1701.test_game.Utils.MyData
 import uz.ilmiddin1701.test_game.databinding.FragmentTest50Binding
 
 class Test50Fragment : Fragment() {
@@ -15,7 +16,7 @@ class Test50Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding.apply {
-
+            MyData.liveData.postValue(false)
         }
         return binding.root
     }
