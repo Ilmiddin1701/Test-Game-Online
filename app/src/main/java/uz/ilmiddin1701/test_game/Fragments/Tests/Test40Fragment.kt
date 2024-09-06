@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import uz.ilmiddin1701.test_game.Models.TestLevelData
 import uz.ilmiddin1701.test_game.R
 import uz.ilmiddin1701.test_game.Utils.MyData
@@ -17,11 +19,18 @@ class Test40Fragment : Fragment() {
     private var totalTests = 0
     private var completedTest = 1
     private var level = 0
+    private var isChecked = false
+
+    private lateinit var firebaseDatabase: FirebaseDatabase
+    private lateinit var reference: DatabaseReference
+    private var key = ""
 
     var number1 = 0
     var number2 = 0
     var javob = 0
     var amal = 0
+    private var userInputAnswer = 0
+    private var answerTrue = 0
 
     private lateinit var layoutParams: ViewGroup.LayoutParams
     override fun onCreateView(
@@ -38,6 +47,7 @@ class Test40Fragment : Fragment() {
             level = arguments?.getInt("keyPosition", 0)!!
 
             btnNext.setOnClickListener {
+
                 if (completedTest == 40) {
                     completedTest = 0
                     updateProgress()
@@ -45,6 +55,62 @@ class Test40Fragment : Fragment() {
                 } else {
                     updateProgress()
                     random()
+                }
+            }
+            answerA.setOnClickListener {
+                if (!isChecked && tvAnswerA.text.toString().toInt() == javob){
+                    userInputAnswer = tvAnswerA.text.toString().toInt()
+                    isChecked = true
+                    answerTrue++
+                    forStyleLinear1.setBackgroundResource(R.drawable.progress_style)
+                    forStyleTv1.setBackgroundResource(R.drawable.style_3)
+                } else if (!isChecked && tvAnswerA.text.toString().toInt() != javob){
+                    userInputAnswer = tvAnswerA.text.toString().toInt()
+                    isChecked = true
+                    forStyleLinear1.setBackgroundResource(R.drawable.red_style)
+                    forStyleTv1.setBackgroundResource(R.drawable.style_3)
+                }
+            }
+            answerB.setOnClickListener {
+                if (!isChecked && tvAnswerB.text.toString().toInt() == javob){
+                    userInputAnswer = tvAnswerB.text.toString().toInt()
+                    isChecked = true
+                    answerTrue++
+                    forStyleLinear2.setBackgroundResource(R.drawable.progress_style)
+                    forStyleTv2.setBackgroundResource(R.drawable.style_3)
+                } else if (!isChecked && tvAnswerB.text.toString().toInt() != javob){
+                    userInputAnswer = tvAnswerB.text.toString().toInt()
+                    isChecked = true
+                    forStyleLinear2.setBackgroundResource(R.drawable.red_style)
+                    forStyleTv2.setBackgroundResource(R.drawable.style_3)
+                }
+            }
+            answerC.setOnClickListener {
+                if (!isChecked && tvAnswerC.text.toString().toInt() == javob){
+                    userInputAnswer = tvAnswerC.text.toString().toInt()
+                    isChecked = true
+                    answerTrue++
+                    forStyleLinear3.setBackgroundResource(R.drawable.progress_style)
+                    forStyleTv3.setBackgroundResource(R.drawable.style_3)
+                } else if (!isChecked && tvAnswerC.text.toString().toInt() != javob){
+                    userInputAnswer = tvAnswerC.text.toString().toInt()
+                    isChecked = true
+                    forStyleLinear3.setBackgroundResource(R.drawable.red_style)
+                    forStyleTv3.setBackgroundResource(R.drawable.style_3)
+                }
+            }
+            answerD.setOnClickListener {
+                if (!isChecked && tvAnswerD.text.toString().toInt() == javob){
+                    userInputAnswer = tvAnswerD.text.toString().toInt()
+                    isChecked = true
+                    answerTrue++
+                    forStyleLinear4.setBackgroundResource(R.drawable.progress_style)
+                    forStyleTv4.setBackgroundResource(R.drawable.style_3)
+                } else if (!isChecked && tvAnswerD.text.toString().toInt() != javob){
+                    userInputAnswer = tvAnswerD.text.toString().toInt()
+                    isChecked = true
+                    forStyleLinear4.setBackgroundResource(R.drawable.red_style)
+                    forStyleTv4.setBackgroundResource(R.drawable.style_3)
                 }
             }
         }
@@ -127,7 +193,6 @@ class Test40Fragment : Fragment() {
             }
         }
     }
-
 
     private fun updateProgress() {
         completedTest++

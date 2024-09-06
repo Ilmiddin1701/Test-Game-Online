@@ -6,9 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import uz.ilmiddin1701.test_game.Models.TestLevelData
 import uz.ilmiddin1701.test_game.R
 import uz.ilmiddin1701.test_game.Utils.MyData
+import uz.ilmiddin1701.test_game.Utils.MySharedPreferences
 import uz.ilmiddin1701.test_game.databinding.FragmentTest20Binding
 import java.util.Random
 
@@ -17,11 +24,18 @@ class Test20Fragment : Fragment() {
     private var totalTests = 0
     private var completedTest = 1
     private var level = 0
+    private var isChecked = false
 
-    var number1 = 0
-    var number2 = 0
-    var javob = 0
-    var amal = 0
+    private lateinit var firebaseDatabase: FirebaseDatabase
+    private lateinit var reference: DatabaseReference
+    private var key = ""
+
+    private var number1 = 0
+    private var number2 = 0
+    private var javob = 0
+    private  var amal = 0
+    private var userInputAnswer = 0
+    private var answerTrue = 0
 
     private lateinit var layoutParams: ViewGroup.LayoutParams
     override fun onCreateView(
@@ -32,6 +46,25 @@ class Test20Fragment : Fragment() {
             MyData.liveData.postValue(false)
             val testLevelData = arguments?.getSerializable("testLevelData") as TestLevelData
 
+            MySharedPreferences.init(requireContext())
+            firebaseDatabase = FirebaseDatabase.getInstance()
+            reference = firebaseDatabase.getReference("users")
+            reference.child(MySharedPreferences.userId).child("tests")
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val children = snapshot.children
+                        for (child in children) {
+                            val value = child.getValue(TestLevelData::class.java)
+                            if (value!!.tests == testLevelData.tests && value.levelId == testLevelData.levelId) {
+                                key = child.key!!
+                            }
+                        }
+                    }
+                    override fun onCancelled(error: DatabaseError) {
+                        Toast.makeText(context, "Error!", Toast.LENGTH_SHORT).show()
+                    }
+                })
+
             totalTests = testLevelData.tests!!
             tvMaxTest.text = testLevelData.tests!!.toString()
             random()
@@ -39,13 +72,81 @@ class Test20Fragment : Fragment() {
             level = arguments?.getInt("keyPosition", 0)!!
 
             btnNext.setOnClickListener {
-                if (completedTest == 20) {
-                    completedTest = 0
+                if (isChecked) {
+                    isChecked = false
+                    if (completedTest == 20) {
+                        completedTest = 0
+                    }
                     updateProgress()
                     random()
-                } else {
-                    updateProgress()
-                    random()
+                    tvCountTest.text = answerTrue.toString()
+                    reference.child(MySharedPreferences.userId).child("tests")
+                        .child(key).child("testCompleted").setValue(answerTrue)
+
+                    forStyleLinear1.setBackgroundResource(R.drawable.style_2)
+                    forStyleTv1.setBackgroundResource(R.drawable.style_1)
+                    forStyleLinear2.setBackgroundResource(R.drawable.style_2)
+                    forStyleTv2.setBackgroundResource(R.drawable.style_1)
+                    forStyleLinear3.setBackgroundResource(R.drawable.style_2)
+                    forStyleTv3.setBackgroundResource(R.drawable.style_1)
+                    forStyleLinear4.setBackgroundResource(R.drawable.style_2)
+                    forStyleTv4.setBackgroundResource(R.drawable.style_1)
+                }
+            }
+            answerA.setOnClickListener {
+                if (!isChecked && tvAnswerA.text.toString().toInt() == javob){
+                    userInputAnswer = tvAnswerA.text.toString().toInt()
+                    isChecked = true
+                    answerTrue++
+                    forStyleLinear1.setBackgroundResource(R.drawable.progress_style)
+                    forStyleTv1.setBackgroundResource(R.drawable.style_3)
+                } else if (!isChecked && tvAnswerA.text.toString().toInt() != javob){
+                    userInputAnswer = tvAnswerA.text.toString().toInt()
+                    isChecked = true
+                    forStyleLinear1.setBackgroundResource(R.drawable.red_style)
+                    forStyleTv1.setBackgroundResource(R.drawable.style_3)
+                }
+            }
+            answerB.setOnClickListener {
+                if (!isChecked && tvAnswerB.text.toString().toInt() == javob){
+                    userInputAnswer = tvAnswerB.text.toString().toInt()
+                    isChecked = true
+                    answerTrue++
+                    forStyleLinear2.setBackgroundResource(R.drawable.progress_style)
+                    forStyleTv2.setBackgroundResource(R.drawable.style_3)
+                } else if (!isChecked && tvAnswerB.text.toString().toInt() != javob){
+                    userInputAnswer = tvAnswerB.text.toString().toInt()
+                    isChecked = true
+                    forStyleLinear2.setBackgroundResource(R.drawable.red_style)
+                    forStyleTv2.setBackgroundResource(R.drawable.style_3)
+                }
+            }
+            answerC.setOnClickListener {
+                if (!isChecked && tvAnswerC.text.toString().toInt() == javob){
+                    userInputAnswer = tvAnswerC.text.toString().toInt()
+                    isChecked = true
+                    answerTrue++
+                    forStyleLinear3.setBackgroundResource(R.drawable.progress_style)
+                    forStyleTv3.setBackgroundResource(R.drawable.style_3)
+                } else if (!isChecked && tvAnswerC.text.toString().toInt() != javob){
+                    userInputAnswer = tvAnswerC.text.toString().toInt()
+                    isChecked = true
+                    forStyleLinear3.setBackgroundResource(R.drawable.red_style)
+                    forStyleTv3.setBackgroundResource(R.drawable.style_3)
+                }
+            }
+            answerD.setOnClickListener {
+                if (!isChecked && tvAnswerD.text.toString().toInt() == javob){
+                    userInputAnswer = tvAnswerD.text.toString().toInt()
+                    isChecked = true
+                    answerTrue++
+                    forStyleLinear4.setBackgroundResource(R.drawable.progress_style)
+                    forStyleTv4.setBackgroundResource(R.drawable.style_3)
+                } else if (!isChecked && tvAnswerD.text.toString().toInt() != javob){
+                    userInputAnswer = tvAnswerD.text.toString().toInt()
+                    isChecked = true
+                    forStyleLinear4.setBackgroundResource(R.drawable.red_style)
+                    forStyleTv4.setBackgroundResource(R.drawable.style_3)
                 }
             }
         }

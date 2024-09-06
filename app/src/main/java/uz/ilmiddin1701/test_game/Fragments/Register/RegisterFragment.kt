@@ -224,7 +224,7 @@ class RegisterFragment : Fragment() {
         val tests509 = TestLevelData(9, 0, 50, 0, "0", false)
         val tests5010 = TestLevelData(10, 0, 50, 0, "0", false)
         val tests5011 = TestLevelData(11, 0, 50, 0, "0", false)
-        val tests5012 = TestLevelData(12, 0,  50, 0, "0", false)
+        val tests5012 = TestLevelData(12, 0, 50, 0, "0", false)
         val tests5013 = TestLevelData(13, 0, 50, 0, "0", false)
         val tests5014 = TestLevelData(14, 0, 50, 0, "0", false)
         val tests5015 = TestLevelData(15, 0, 50, 0, "0", false)
@@ -232,7 +232,7 @@ class RegisterFragment : Fragment() {
         val tests5017 = TestLevelData(17, 0, 50, 0, "0", false)
         val tests5018 = TestLevelData(18, 0, 50, 0, "0", false)
         val tests5019 = TestLevelData(19, 0, 50, 0, "0", false)
-        val tests5020 = TestLevelData(20, 0, 60, 0, "0", false)
+        val tests5020 = TestLevelData(20, 0, 50, 0, "0", false)
 
         reference.child(userId).child("tests").child("test61").setValue(tests501)
         reference.child(userId).child("tests").child("test62").setValue(tests502)
