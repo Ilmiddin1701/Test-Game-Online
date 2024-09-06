@@ -216,12 +216,12 @@ class HomeFragment : Fragment(), HomeRvAdapter.RvAction {
         return binding.root
     }
 
-    override fun itemClick(testLevelData: TestLevelData) {
+    override fun itemClick(testLevelData: TestLevelData, position: Int) {
         when (n) {
-            1 -> findNavController().navigate(R.id.test20Fragment, bundleOf("testLevelData" to testLevelData))
-            2 -> findNavController().navigate(R.id.test30Fragment, bundleOf("testLevelData" to testLevelData))
-            3 -> findNavController().navigate(R.id.test40Fragment, bundleOf("testLevelData" to testLevelData))
-            4 -> findNavController().navigate(R.id.test50Fragment, bundleOf("testLevelData" to testLevelData))
+            1 -> findNavController().navigate(R.id.test20Fragment, bundleOf("testLevelData" to testLevelData, "keyPosition" to position.toString()))
+            2 -> findNavController().navigate(R.id.test30Fragment, bundleOf("testLevelData" to testLevelData, "keyPosition" to position.toString()))
+            3 -> findNavController().navigate(R.id.test40Fragment, bundleOf("testLevelData" to testLevelData, "keyPosition" to position.toString()))
+            4 -> findNavController().navigate(R.id.test50Fragment, bundleOf("testLevelData" to testLevelData, "keyPosition" to position.toString()))
         }
     }
 }

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DCF4FF"
-    android:orientation="vertical"
     tools:context=".Fragments.Tests.Test20Fragment">
 
     <TextView
@@ -13,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="2dp"
-        android:text="0"
+        android:text="@string/_0"
         android:textColor="#4073B6"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -25,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="2dp"
-        android:text="/"
+        android:text="@string/slash"
         android:textColor="#314C70"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -37,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
-        android:text="20"
+        android:text="@string/_0"
         android:textColor="#314C70"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -65,7 +64,7 @@
 
             <FrameLayout
                 android:id="@+id/progressContainer"
-                android:layout_width="0dp"
+                android:layout_width="16dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/progress_style" />
         </androidx.cardview.widget.CardView>

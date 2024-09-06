@@ -18,7 +18,7 @@ class HomeRvAdapter(var rvAction: RvAction, private var list: ArrayList<TestLeve
                 if (testLevelData.isChecked) {
                     itemVisible.visibility = View.GONE
                     root.setOnClickListener {
-                        rvAction.itemClick(testLevelData)
+                        rvAction.itemClick(testLevelData, position)
                     }
                     when (testLevelData.stars) {
                         0 -> {
@@ -60,6 +60,6 @@ class HomeRvAdapter(var rvAction: RvAction, private var list: ArrayList<TestLeve
     }
 
     interface RvAction {
-        fun itemClick(testLevelData: TestLevelData)
+        fun itemClick(testLevelData: TestLevelData, position: Int)
     }
 }
