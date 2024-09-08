@@ -116,6 +116,7 @@
                     android:layout_height="match_parent"
                     android:hint="@string/password"
                     android:lines="1"
+                    android:inputType="textPassword"
                     android:maxLength="15"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>

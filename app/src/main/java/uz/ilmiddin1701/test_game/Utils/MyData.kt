@@ -4,4 +4,5 @@ import androidx.lifecycle.MutableLiveData
 
 object MyData {
     val liveData = MutableLiveData<Boolean>()
+    val closeAccount = MutableLiveData<Boolean>()
 }

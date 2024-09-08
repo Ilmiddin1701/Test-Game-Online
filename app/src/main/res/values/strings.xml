@@ -42,4 +42,6 @@
     <string name="next">Next</string>
     <string name="_0">0</string>
     <string name="slash">/</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
 </resources>

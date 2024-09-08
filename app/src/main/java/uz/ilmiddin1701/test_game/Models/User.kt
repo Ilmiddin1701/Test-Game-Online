@@ -8,7 +8,7 @@ class User : Serializable {
     var lastName: String? = null
     var userName: String? = null
     var password: String? = null
-    var userImage: Int? = null
+    var userImage: String? = null
 
     constructor(
         id: String?,
@@ -16,7 +16,7 @@ class User : Serializable {
         lastName: String?,
         userName: String?,
         password: String?,
-        userImage: Int?
+        userImage: String?
     ) {
         this.id = id
         this.firstName = firstName

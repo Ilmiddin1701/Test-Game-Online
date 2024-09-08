@@ -64,6 +64,8 @@ class LoginFragment : Fragment() {
                 onBackPressedCallBack
             )
 
+            edtPassword.inputType
+
             btnLogin.setOnClickListener {
                 if (edtUserName.text!!.isNotBlank() && edtPassword.text!!.isNotBlank()) {
                     val userName = edtUserName.text.toString()

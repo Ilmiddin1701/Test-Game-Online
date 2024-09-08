@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import uz.ilmiddin1701.test_game.R
 import uz.ilmiddin1701.test_game.Utils.MyData
@@ -19,6 +20,13 @@ class ContainerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding.apply {
+            MyData.closeAccount.observe(viewLifecycleOwner) {
+                if (it) {
+                    findNavController().popBackStack()
+                    findNavController().navigate(R.id.registerFragment)
+                    MyData.closeAccount.postValue(false)
+                }
+            }
             MyData.liveData.observe(viewLifecycleOwner) {
                 when (it) {
                     true -> bottomNavigationView.visibility = View.VISIBLE

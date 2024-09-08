@@ -86,6 +86,7 @@
                     android:drawablePadding="10dp"
                     android:drawableTint="#4D4D4D"
                     android:hint="@string/password"
+                    android:inputType="textPassword"
                     android:lines="1"
                     android:maxLength="15"
                     android:maxLines="1" />

@@ -8,7 +8,6 @@
     tools:context=".Fragments.ProfileFragment">
 
     <View
-
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@drawable/bg_profile"
@@ -43,7 +42,7 @@
                 android:layout_height="120dp"
                 android:contentDescription="@string/user_image"
                 android:scaleType="centerCrop"
-                android:src="@drawable/user_image" />
+                android:src="@drawable/ic_user" />
         </androidx.cardview.widget.CardView>
     </com.google.android.material.card.MaterialCardView>
 
