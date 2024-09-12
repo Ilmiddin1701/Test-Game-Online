@@ -124,7 +124,7 @@ class Test30Fragment : Fragment() {
                                             list.clear()
                                             snapshot.children.forEach { child ->
                                                 val value = child.getValue(TestLevelData::class.java)
-                                                if (value != null) {
+                                                if (value != null && value.tests == 30) {
                                                     completedTest30 += value.testCompleted!!
                                                     completedTestTime30 += value.testCompletedTime!!.toInt()
                                                 }
@@ -164,7 +164,7 @@ class Test30Fragment : Fragment() {
                                             list.clear()
                                             snapshot.children.forEach { child ->
                                                 val value = child.getValue(TestLevelData::class.java)
-                                                if (value != null) {
+                                                if (value != null && value.tests == 30) {
                                                     completedTest30 += value.testCompleted!!
                                                     completedTestTime30 += value.testCompletedTime!!.toInt()
                                                 }
@@ -204,7 +204,7 @@ class Test30Fragment : Fragment() {
                                             list.clear()
                                             snapshot.children.forEach { child ->
                                                 val value = child.getValue(TestLevelData::class.java)
-                                                if (value != null) {
+                                                if (value != null && value.tests == 30) {
                                                     completedTest30 += value.testCompleted!!
                                                     completedTestTime30 += value.testCompletedTime!!.toInt()
                                                 }
@@ -244,7 +244,7 @@ class Test30Fragment : Fragment() {
                                             list.clear()
                                             snapshot.children.forEach { child ->
                                                 val value = child.getValue(TestLevelData::class.java)
-                                                if (value != null) {
+                                                if (value != null && value.tests == 30) {
                                                     completedTest30 += value.testCompleted!!
                                                     completedTestTime30 += value.testCompletedTime!!.toInt()
                                                 }

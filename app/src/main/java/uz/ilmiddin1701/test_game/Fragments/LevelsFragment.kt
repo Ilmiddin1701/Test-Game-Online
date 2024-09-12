@@ -68,26 +68,32 @@ class LevelsFragment : Fragment() {
                                 list.addAll(sortedUsers)
                                 levelsAdapter = LevelsAdapter(20, list)
                                 if (list.size == 1) {
-                                    if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
-                                    tvLevel1.text = "@" + list[0].userName
                                     level1.visibility = View.VISIBLE
-                                } else if (list.size == 2) {
+                                    level2.visibility = View.INVISIBLE
+                                    level3.visibility = View.INVISIBLE
                                     tvLevel1.text = "@" + list[0].userName
-                                    tvLevel2.text = "@" + list[1].userName
+                                    tvLevel2.text = ""
+                                    tvLevel3.text = ""
                                     if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
-                                    if (list[1].userImage != "null") Picasso.get().load(list[1].userImage).into(userImage2) else userImage2.setImageResource(R.drawable.ic_user)
+                                } else if (list.size == 2) {
                                     level1.visibility = View.VISIBLE
                                     level2.visibility = View.VISIBLE
-                                } else if (list.size > 2) {
-                                    if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
-                                    if (list[1].userImage != "null") Picasso.get().load(list[1].userImage).into(userImage2) else userImage2.setImageResource(R.drawable.ic_user)
-                                    if (list[2].userImage != "null") Picasso.get().load(list[2].userImage).into(userImage2) else userImage3.setImageResource(R.drawable.ic_user)
+                                    level3.visibility = View.INVISIBLE
                                     tvLevel1.text = "@" + list[0].userName
                                     tvLevel2.text = "@" + list[1].userName
-                                    tvLevel3.text = "@" + list[2].userName
+                                    tvLevel3.text = ""
+                                    if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
+                                    if (list[1].userImage != "null") Picasso.get().load(list[1].userImage).into(userImage2) else userImage2.setImageResource(R.drawable.ic_user)
+                                } else if (list.size > 2) {
                                     level1.visibility = View.VISIBLE
                                     level2.visibility = View.VISIBLE
                                     level3.visibility = View.VISIBLE
+                                    tvLevel1.text = "@" + list[0].userName
+                                    tvLevel2.text = "@" + list[1].userName
+                                    tvLevel3.text = "@" + list[2].userName
+                                    if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
+                                    if (list[1].userImage != "null") Picasso.get().load(list[1].userImage).into(userImage2) else userImage2.setImageResource(R.drawable.ic_user)
+                                    if (list[2].userImage != "null") Picasso.get().load(list[2].userImage).into(userImage2) else userImage3.setImageResource(R.drawable.ic_user)
                                 }
                                 rv.adapter = levelsAdapter
                             }
@@ -98,26 +104,26 @@ class LevelsFragment : Fragment() {
                                 list.addAll(sortedUsers)
                                 levelsAdapter = LevelsAdapter(30, list)
                                 if (list.size == 1) {
-                                    if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
-                                    tvLevel1.text = "@" + list[0].userName
                                     level1.visibility = View.VISIBLE
-                                } else if (list.size == 2) {
-                                    if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
-                                    if (list[1].userImage != "null") Picasso.get().load(list[1].userImage).into(userImage2) else userImage2.setImageResource(R.drawable.ic_user)
                                     tvLevel1.text = "@" + list[0].userName
-                                    tvLevel2.text = "@" + list[1].userName
+                                    if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
+                                } else if (list.size == 2) {
                                     level1.visibility = View.VISIBLE
                                     level2.visibility = View.VISIBLE
-                                } else if (list.size > 3) {
-                                    if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
-                                    if (list[1].userImage != "null") Picasso.get().load(list[1].userImage).into(userImage2) else userImage2.setImageResource(R.drawable.ic_user)
-                                    if (list[2].userImage != "null") Picasso.get().load(list[2].userImage).into(userImage2) else userImage3.setImageResource(R.drawable.ic_user)
                                     tvLevel1.text = "@" + list[0].userName
                                     tvLevel2.text = "@" + list[1].userName
-                                    tvLevel3.text = "@" + list[2].userName
+                                    if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
+                                    if (list[1].userImage != "null") Picasso.get().load(list[1].userImage).into(userImage2) else userImage2.setImageResource(R.drawable.ic_user)
+                                } else if (list.size > 2) {
                                     level1.visibility = View.VISIBLE
                                     level2.visibility = View.VISIBLE
                                     level3.visibility = View.VISIBLE
+                                    tvLevel1.text = "@" + list[0].userName
+                                    tvLevel2.text = "@" + list[1].userName
+                                    tvLevel3.text = "@" + list[2].userName
+                                    if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
+                                    if (list[1].userImage != "null") Picasso.get().load(list[1].userImage).into(userImage2) else userImage2.setImageResource(R.drawable.ic_user)
+                                    if (list[2].userImage != "null") Picasso.get().load(list[2].userImage).into(userImage2) else userImage3.setImageResource(R.drawable.ic_user)
                                 }
                                 rv.adapter = levelsAdapter
                             }
@@ -128,26 +134,26 @@ class LevelsFragment : Fragment() {
                                 list.addAll(sortedUsers)
                                 levelsAdapter = LevelsAdapter(40, list)
                                 if (list.size == 1) {
-                                    if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
-                                    tvLevel1.text = "@" + list[0].userName
                                     level1.visibility = View.VISIBLE
-                                } else if (list.size == 2) {
-                                    if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
-                                    if (list[1].userImage != "null") Picasso.get().load(list[1].userImage).into(userImage2) else userImage2.setImageResource(R.drawable.ic_user)
                                     tvLevel1.text = "@" + list[0].userName
-                                    tvLevel2.text = "@" + list[1].userName
+                                    if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
+                                } else if (list.size == 2) {
                                     level1.visibility = View.VISIBLE
                                     level2.visibility = View.VISIBLE
-                                } else if (list.size > 3) {
-                                    if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
-                                    if (list[1].userImage != "null") Picasso.get().load(list[1].userImage).into(userImage2) else userImage2.setImageResource(R.drawable.ic_user)
-                                    if (list[2].userImage != "null") Picasso.get().load(list[2].userImage).into(userImage2) else userImage3.setImageResource(R.drawable.ic_user)
                                     tvLevel1.text = "@" + list[0].userName
                                     tvLevel2.text = "@" + list[1].userName
-                                    tvLevel3.text = "@" + list[2].userName
+                                    if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
+                                    if (list[1].userImage != "null") Picasso.get().load(list[1].userImage).into(userImage2) else userImage2.setImageResource(R.drawable.ic_user)
+                                } else if (list.size > 2) {
                                     level1.visibility = View.VISIBLE
                                     level2.visibility = View.VISIBLE
                                     level3.visibility = View.VISIBLE
+                                    tvLevel1.text = "@" + list[0].userName
+                                    tvLevel2.text = "@" + list[1].userName
+                                    tvLevel3.text = "@" + list[2].userName
+                                    if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
+                                    if (list[1].userImage != "null") Picasso.get().load(list[1].userImage).into(userImage2) else userImage2.setImageResource(R.drawable.ic_user)
+                                    if (list[2].userImage != "null") Picasso.get().load(list[2].userImage).into(userImage2) else userImage3.setImageResource(R.drawable.ic_user)
                                 }
                                 rv.adapter = levelsAdapter
                             }
@@ -168,7 +174,7 @@ class LevelsFragment : Fragment() {
                                     tvLevel2.text = "@" + list[1].userName
                                     level1.visibility = View.VISIBLE
                                     level2.visibility = View.VISIBLE
-                                } else if (list.size > 3) {
+                                } else if (list.size > 2) {
                                     if (list[0].userImage != "null") Picasso.get().load(list[0].userImage).into(userImage1) else userImage1.setImageResource(R.drawable.ic_user)
                                     if (list[1].userImage != "null") Picasso.get().load(list[1].userImage).into(userImage2) else userImage2.setImageResource(R.drawable.ic_user)
                                     if (list[2].userImage != "null") Picasso.get().load(list[2].userImage).into(userImage2) else userImage3.setImageResource(R.drawable.ic_user)
@@ -212,7 +218,6 @@ class LevelsFragment : Fragment() {
     private fun updateButtonStyles(selectedButton: TextView, vararg otherButtons: TextView) {
         selectedButton.setTextColor(Color.parseColor("#314C70"))
         selectedButton.setBackgroundResource(R.drawable.selected1_style)
-
         for (button in otherButtons) {
             button.setTextColor(Color.WHITE)
             button.setBackgroundResource(R.drawable.unselected1_style)
