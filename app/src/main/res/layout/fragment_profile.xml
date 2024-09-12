@@ -27,12 +27,12 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="#FFB700"
-        app:strokeWidth="3dp">
+        app:strokeWidth="2dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="3dp"
             app:cardCornerRadius="60dp"
             app:cardElevation="0dp">
 

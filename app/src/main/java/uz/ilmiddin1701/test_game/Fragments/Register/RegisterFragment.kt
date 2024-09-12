@@ -8,10 +8,14 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import uz.ilmiddin1701.test_game.Models.TestLevelData
 import uz.ilmiddin1701.test_game.Models.User
 import uz.ilmiddin1701.test_game.R
@@ -38,6 +42,33 @@ class RegisterFragment : Fragment() {
             if (MySharedPreferences.userId == "empty") {
                 database = FirebaseDatabase.getInstance()
                 reference = database.getReference("users")
+                val list = ArrayList<String>()
+
+                reference.addValueEventListener(object : ValueEventListener{
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        list.clear()
+                        val children = snapshot.children
+                        for (child in children) {
+                            val user = child.getValue(User::class.java)
+                            if (user != null) {
+                                list.add(user.userName!!)
+                            }
+                        }
+                    }
+                    override fun onCancelled(error: DatabaseError) {
+                        Toast.makeText(context, "Error!", Toast.LENGTH_SHORT).show()
+                    }
+                })
+                var userNameCheck = false
+                edtUserName.addTextChangedListener {
+                    if (list.contains(edtUserName.text.toString())) {
+                        edtUserName.error = "This username is already taken"
+                        userNameCheck = false
+                    } else {
+                        edtUserName.error = null
+                        userNameCheck = true
+                    }
+                }
 
                 openAnim = AnimationUtils.loadAnimation(context, R.anim.open_anim)
                 exitAnim = AnimationUtils.loadAnimation(context, R.anim.exit_anim)
@@ -47,9 +78,9 @@ class RegisterFragment : Fragment() {
                 appLogo.startAnimation(showLogoAnim)
 
                 btnRegister.setOnClickListener {
-                    if (edtFirstName.text.toString().isNotBlank() && edtLastName.text.toString().isNotBlank() && edtUserName.text.toString().isNotBlank() && edtPassword.text.toString().isNotBlank()) {
+                    if (edtFirstName.text.toString().isNotBlank() && edtLastName.text.toString().isNotBlank() && edtUserName.text.toString().isNotBlank() && edtPassword.text.toString().isNotBlank() && userNameCheck) {
                         val userId = reference.push().key!!
-                        val user = User(userId, edtFirstName.text.toString(), edtLastName.text.toString(), edtUserName.text.toString(), edtPassword.text.toString(), null)
+                        val user = User(userId, edtFirstName.text.toString(), edtLastName.text.toString(), edtUserName.text.toString(), edtPassword.text.toString(), "null", 0, 0, 0, 0, 0, 0, 0, 0)
                         reference.child(userId).setValue(user)
                         MySharedPreferences.userId = userId
 
@@ -84,26 +115,26 @@ class RegisterFragment : Fragment() {
 
     private fun addTestLevelData(userId: String) {
         //Tests 20
-        val tests201 = TestLevelData(1, 0, 20, 0, "0", true)
-        val tests202 = TestLevelData(2, 0, 20, 0, "0", false)
-        val tests203 = TestLevelData(3, 0, 20, 0, "0", false)
-        val tests204 = TestLevelData(4, 0, 20, 0, "0", false)
-        val tests205 = TestLevelData(5, 0, 20, 0, "0", false)
-        val tests206 = TestLevelData(6, 0, 20, 0, "0", false)
-        val tests207 = TestLevelData(7, 0, 20, 0, "0", false)
-        val tests208 = TestLevelData(8, 0, 20, 0, "0", false)
-        val tests209 = TestLevelData(9, 0, 20, 0, "0", false)
-        val tests2010 = TestLevelData(10, 0, 20, 0, "0", false)
-        val tests2011 = TestLevelData(11, 0, 20, 0, "0", false)
-        val tests2012 = TestLevelData(12, 0, 20, 0, "0", false)
-        val tests2013 = TestLevelData(13, 0, 20, 0, "0", false)
-        val tests2014 = TestLevelData(14, 0, 20, 0, "0", false)
-        val tests2015 = TestLevelData(15, 0, 20, 0, "0", false)
-        val tests2016 = TestLevelData(16, 0, 20, 0, "0", false)
-        val tests2017 = TestLevelData(17, 0, 20, 0, "0", false)
-        val tests2018 = TestLevelData(18, 0, 20, 0, "0", false)
-        val tests2019 = TestLevelData(19, 0, 20, 0, "0", false)
-        val tests2020 = TestLevelData(20, 0, 20, 0, "0", false)
+        val tests201 = TestLevelData(1, 0, 20, 0, 0, true)
+        val tests202 = TestLevelData(2, 0, 20, 0, 0, false)
+        val tests203 = TestLevelData(3, 0, 20, 0, 0, false)
+        val tests204 = TestLevelData(4, 0, 20, 0, 0, false)
+        val tests205 = TestLevelData(5, 0, 20, 0, 0, false)
+        val tests206 = TestLevelData(6, 0, 20, 0, 0, false)
+        val tests207 = TestLevelData(7, 0, 20, 0, 0, false)
+        val tests208 = TestLevelData(8, 0, 20, 0, 0, false)
+        val tests209 = TestLevelData(9, 0, 20, 0, 0, false)
+        val tests2010 = TestLevelData(10, 0, 20, 0, 0, false)
+        val tests2011 = TestLevelData(11, 0, 20, 0, 0, false)
+        val tests2012 = TestLevelData(12, 0, 20, 0, 0, false)
+        val tests2013 = TestLevelData(13, 0, 20, 0, 0, false)
+        val tests2014 = TestLevelData(14, 0, 20, 0, 0, false)
+        val tests2015 = TestLevelData(15, 0, 20, 0, 0, false)
+        val tests2016 = TestLevelData(16, 0, 20, 0, 0, false)
+        val tests2017 = TestLevelData(17, 0, 20, 0, 0, false)
+        val tests2018 = TestLevelData(18, 0, 20, 0, 0, false)
+        val tests2019 = TestLevelData(19, 0, 20, 0, 0, false)
+        val tests2020 = TestLevelData(20, 0, 20, 0, 0, false)
 
         reference.child(userId).child("tests").child("test1").setValue(tests201)
         reference.child(userId).child("tests").child("test2").setValue(tests202)
@@ -127,26 +158,26 @@ class RegisterFragment : Fragment() {
         reference.child(userId).child("tests").child("test20").setValue(tests2020)
 
         //Tests 30
-        val tests301 = TestLevelData(1, 0, 30, 0, "0", true)
-        val tests302 = TestLevelData(2, 0, 30, 0, "0", false)
-        val tests303 = TestLevelData(3, 0, 30, 0, "0", false)
-        val tests304 = TestLevelData(4, 0, 30, 0, "0", false)
-        val tests305 = TestLevelData(5, 0, 30, 0, "0", false)
-        val tests306 = TestLevelData(6, 0, 30, 0, "0", false)
-        val tests307 = TestLevelData(7, 0, 30, 0, "0", false)
-        val tests308 = TestLevelData(8, 0, 30, 0, "0", false)
-        val tests309 = TestLevelData(9, 0, 30, 0, "0", false)
-        val tests3010 = TestLevelData(10, 0, 30, 0, "0", false)
-        val tests3011 = TestLevelData(11, 0, 30, 0, "0", false)
-        val tests3012 = TestLevelData(12, 0, 30, 0, "0", false)
-        val tests3013 = TestLevelData(13, 0, 30, 0, "0", false)
-        val tests3014 = TestLevelData(14, 0, 30, 0, "0", false)
-        val tests3015 = TestLevelData(15, 0, 30, 0, "0", false)
-        val tests3016 = TestLevelData(16, 0, 30, 0, "0", false)
-        val tests3017 = TestLevelData(17, 0, 30, 0, "0", false)
-        val tests3018 = TestLevelData(18, 0, 30, 0, "0", false)
-        val tests3019 = TestLevelData(19, 0, 30, 0, "0", false)
-        val tests3020 = TestLevelData(20, 0, 30, 0, "0", false)
+        val tests301 = TestLevelData(1, 0, 30, 0, 0, true)
+        val tests302 = TestLevelData(2, 0, 30, 0, 0, false)
+        val tests303 = TestLevelData(3, 0, 30, 0, 0, false)
+        val tests304 = TestLevelData(4, 0, 30, 0, 0, false)
+        val tests305 = TestLevelData(5, 0, 30, 0, 0, false)
+        val tests306 = TestLevelData(6, 0, 30, 0, 0, false)
+        val tests307 = TestLevelData(7, 0, 30, 0, 0, false)
+        val tests308 = TestLevelData(8, 0, 30, 0, 0, false)
+        val tests309 = TestLevelData(9, 0, 30, 0, 0, false)
+        val tests3010 = TestLevelData(10, 0, 30, 0, 0, false)
+        val tests3011 = TestLevelData(11, 0, 30, 0, 0, false)
+        val tests3012 = TestLevelData(12, 0, 30, 0, 0, false)
+        val tests3013 = TestLevelData(13, 0, 30, 0, 0, false)
+        val tests3014 = TestLevelData(14, 0, 30, 0, 0, false)
+        val tests3015 = TestLevelData(15, 0, 30, 0, 0, false)
+        val tests3016 = TestLevelData(16, 0, 30, 0, 0, false)
+        val tests3017 = TestLevelData(17, 0, 30, 0, 0, false)
+        val tests3018 = TestLevelData(18, 0, 30, 0, 0, false)
+        val tests3019 = TestLevelData(19, 0, 30, 0, 0, false)
+        val tests3020 = TestLevelData(20, 0, 30, 0, 0, false)
 
         reference.child(userId).child("tests").child("test21").setValue(tests301)
         reference.child(userId).child("tests").child("test22").setValue(tests302)
@@ -170,26 +201,26 @@ class RegisterFragment : Fragment() {
         reference.child(userId).child("tests").child("test40").setValue(tests3020)
 
         //Tests 40
-        val tests401 = TestLevelData(1, 0, 40, 0, "0", true)
-        val tests402 = TestLevelData(2, 0, 40, 0, "0", false)
-        val tests403 = TestLevelData(3, 0, 40, 0, "0", false)
-        val tests404 = TestLevelData(4, 0, 40, 0, "0", false)
-        val tests405 = TestLevelData(5, 0, 40, 0, "0", false)
-        val tests406 = TestLevelData(6, 0, 40, 0, "0", false)
-        val tests407 = TestLevelData(7, 0, 40, 0, "0", false)
-        val tests408 = TestLevelData(8, 0, 40, 0, "0", false)
-        val tests409 = TestLevelData(9, 0, 40, 0, "0", false)
-        val tests4010 = TestLevelData(10, 0, 40, 0, "0", false)
-        val tests4011 = TestLevelData(11, 0, 40, 0, "0", false)
-        val tests4012 = TestLevelData(12, 0, 40, 0, "0", false)
-        val tests4013 = TestLevelData(13, 0, 40, 0, "0", false)
-        val tests4014 = TestLevelData(14, 0, 40, 0, "0", false)
-        val tests4015 = TestLevelData(15, 0, 40, 0, "0", false)
-        val tests4016 = TestLevelData(16, 0, 40, 0, "0", false)
-        val tests4017 = TestLevelData(17, 0, 40, 0, "0", false)
-        val tests4018 = TestLevelData(18, 0, 40, 0, "0", false)
-        val tests4019 = TestLevelData(19, 0, 40, 0, "0", false)
-        val tests4020 = TestLevelData(20, 0, 40, 0, "0", false)
+        val tests401 = TestLevelData(1, 0, 40, 0, 0, true)
+        val tests402 = TestLevelData(2, 0, 40, 0, 0, false)
+        val tests403 = TestLevelData(3, 0, 40, 0, 0, false)
+        val tests404 = TestLevelData(4, 0, 40, 0, 0, false)
+        val tests405 = TestLevelData(5, 0, 40, 0, 0, false)
+        val tests406 = TestLevelData(6, 0, 40, 0, 0, false)
+        val tests407 = TestLevelData(7, 0, 40, 0, 0, false)
+        val tests408 = TestLevelData(8, 0, 40, 0, 0, false)
+        val tests409 = TestLevelData(9, 0, 40, 0, 0, false)
+        val tests4010 = TestLevelData(10, 0, 40, 0, 0, false)
+        val tests4011 = TestLevelData(11, 0, 40, 0, 0, false)
+        val tests4012 = TestLevelData(12, 0, 40, 0, 0, false)
+        val tests4013 = TestLevelData(13, 0, 40, 0, 0, false)
+        val tests4014 = TestLevelData(14, 0, 40, 0, 0, false)
+        val tests4015 = TestLevelData(15, 0, 40, 0, 0, false)
+        val tests4016 = TestLevelData(16, 0, 40, 0, 0, false)
+        val tests4017 = TestLevelData(17, 0, 40, 0, 0, false)
+        val tests4018 = TestLevelData(18, 0, 40, 0, 0, false)
+        val tests4019 = TestLevelData(19, 0, 40, 0, 0, false)
+        val tests4020 = TestLevelData(20, 0, 40, 0, 0, false)
 
         reference.child(userId).child("tests").child("test41").setValue(tests401)
         reference.child(userId).child("tests").child("test42").setValue(tests402)
@@ -213,26 +244,26 @@ class RegisterFragment : Fragment() {
         reference.child(userId).child("tests").child("test60").setValue(tests4020)
 
         //Tests 50
-        val tests501 = TestLevelData(1, 0, 50, 0, "0", true)
-        val tests502 = TestLevelData(2, 0, 50, 0, "0", false)
-        val tests503 = TestLevelData(3, 0, 50, 0, "0", false)
-        val tests504 = TestLevelData(4, 0, 50, 0, "0", false)
-        val tests505 = TestLevelData(5, 0, 50, 0, "0", false)
-        val tests506 = TestLevelData(6, 0, 50, 0, "0", false)
-        val tests507 = TestLevelData(7, 0, 50, 0, "0", false)
-        val tests508 = TestLevelData(8, 0, 50, 0, "0", false)
-        val tests509 = TestLevelData(9, 0, 50, 0, "0", false)
-        val tests5010 = TestLevelData(10, 0, 50, 0, "0", false)
-        val tests5011 = TestLevelData(11, 0, 50, 0, "0", false)
-        val tests5012 = TestLevelData(12, 0, 50, 0, "0", false)
-        val tests5013 = TestLevelData(13, 0, 50, 0, "0", false)
-        val tests5014 = TestLevelData(14, 0, 50, 0, "0", false)
-        val tests5015 = TestLevelData(15, 0, 50, 0, "0", false)
-        val tests5016 = TestLevelData(16, 0, 50, 0, "0", false)
-        val tests5017 = TestLevelData(17, 0, 50, 0, "0", false)
-        val tests5018 = TestLevelData(18, 0, 50, 0, "0", false)
-        val tests5019 = TestLevelData(19, 0, 50, 0, "0", false)
-        val tests5020 = TestLevelData(20, 0, 50, 0, "0", false)
+        val tests501 = TestLevelData(1, 0, 50, 0, 0, true)
+        val tests502 = TestLevelData(2, 0, 50, 0, 0, false)
+        val tests503 = TestLevelData(3, 0, 50, 0, 0, false)
+        val tests504 = TestLevelData(4, 0, 50, 0, 0, false)
+        val tests505 = TestLevelData(5, 0, 50, 0, 0, false)
+        val tests506 = TestLevelData(6, 0, 50, 0, 0, false)
+        val tests507 = TestLevelData(7, 0, 50, 0, 0, false)
+        val tests508 = TestLevelData(8, 0, 50, 0, 0, false)
+        val tests509 = TestLevelData(9, 0, 50, 0, 0, false)
+        val tests5010 = TestLevelData(10, 0, 50, 0, 0, false)
+        val tests5011 = TestLevelData(11, 0, 50, 0, 0, false)
+        val tests5012 = TestLevelData(12, 0, 50, 0, 0, false)
+        val tests5013 = TestLevelData(13, 0, 50, 0, 0, false)
+        val tests5014 = TestLevelData(14, 0, 50, 0, 0, false)
+        val tests5015 = TestLevelData(15, 0, 50, 0, 0, false)
+        val tests5016 = TestLevelData(16, 0, 50, 0, 0, false)
+        val tests5017 = TestLevelData(17, 0, 50, 0, 0, false)
+        val tests5018 = TestLevelData(18, 0, 50, 0, 0, false)
+        val tests5019 = TestLevelData(19, 0, 50, 0, 0, false)
+        val tests5020 = TestLevelData(20, 0, 50, 0, 0, false)
 
         reference.child(userId).child("tests").child("test61").setValue(tests501)
         reference.child(userId).child("tests").child("test62").setValue(tests502)

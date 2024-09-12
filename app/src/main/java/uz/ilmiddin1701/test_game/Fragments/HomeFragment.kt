@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.squareup.picasso.Picasso
 import uz.ilmiddin1701.test_game.Adapters.HomeRvAdapter
 import uz.ilmiddin1701.test_game.Models.TestLevelData
 import uz.ilmiddin1701.test_game.Models.User
@@ -57,6 +58,11 @@ class HomeFragment : Fragment(), HomeRvAdapter.RvAction {
                         if (user != null && user.id == MySharedPreferences.userId) {
                             tvName.text = "${user.firstName} ${user.lastName}"
                             tvUserName.text = "@${user.userName}"
+                            if (user.userImage != "null") {
+                                Picasso.get().load(user.userImage).into(userImage)
+                            } else {
+                                userImage.setImageResource(R.drawable.ic_user)
+                            }
                         }
                     }
                 }
@@ -218,10 +224,10 @@ class HomeFragment : Fragment(), HomeRvAdapter.RvAction {
 
     override fun itemClick(testLevelData: TestLevelData, position: Int) {
         when (n) {
-            1 -> findNavController().navigate(R.id.test20Fragment, bundleOf("testLevelData" to testLevelData, "keyPosition" to position.toString()))
-            2 -> findNavController().navigate(R.id.test30Fragment, bundleOf("testLevelData" to testLevelData, "keyPosition" to position.toString()))
-            3 -> findNavController().navigate(R.id.test40Fragment, bundleOf("testLevelData" to testLevelData, "keyPosition" to position.toString()))
-            4 -> findNavController().navigate(R.id.test50Fragment, bundleOf("testLevelData" to testLevelData, "keyPosition" to position.toString()))
+            1 -> findNavController().navigate(R.id.test20Fragment, bundleOf("testLevelData" to testLevelData, "keyPosition" to position))
+            2 -> findNavController().navigate(R.id.test30Fragment, bundleOf("testLevelData" to testLevelData, "keyPosition" to position))
+            3 -> findNavController().navigate(R.id.test40Fragment, bundleOf("testLevelData" to testLevelData, "keyPosition" to position))
+            4 -> findNavController().navigate(R.id.test50Fragment, bundleOf("testLevelData" to testLevelData, "keyPosition" to position))
         }
     }
 }

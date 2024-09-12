@@ -65,7 +65,7 @@ class ProfileFragment : Fragment() {
                     binding.apply {
                         tvName.text = "$firstName $lastName"
                         tvUserName.text = "@$userName"
-                        if (snapshot.child("userImage").value != null) {
+                        if (snapshot.child("userImage").value != "null") {
                             image = snapshot.child("userImage").value.toString()
                             Picasso.get().load(image).into(userImage)
                         } else {

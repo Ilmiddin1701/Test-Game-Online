@@ -7,7 +7,7 @@ class TestLevelData: Serializable {
     var stars: Int? = null
     var tests: Int? = null
     var testCompleted: Int? = null
-    var testCompletedTime: String? = null
+    var testCompletedTime: Long? = null
     var isChecked: Boolean = false
 
     constructor()
@@ -17,7 +17,7 @@ class TestLevelData: Serializable {
         stars: Int?,
         tests: Int?,
         testCompleted: Int?,
-        testCompletedTime: String?,
+        testCompletedTime: Long?,
         isChecked: Boolean
     ) {
         this.levelId = levelId

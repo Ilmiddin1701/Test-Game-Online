@@ -44,4 +44,10 @@
     <string name="slash">/</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="_00_00_00">00 : 00 : 00</string>
+    <string name="username">\@user_name</string>
+    <string name="name">Name</string>
+    <string name="_01">01</string>
+    <string name="tap_to_continue">Tap to Continue</string>
+    <string name="you_win">Your Result</string>
 </resources>
