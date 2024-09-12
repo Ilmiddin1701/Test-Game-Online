@@ -82,23 +82,34 @@ class ProfileFragment : Fragment() {
                 val dialog = AlertDialog.Builder(requireContext()).create()
                 dialog.setTitle("Delete account")
                 dialog.setMessage("Are you sure you want to delete your account?")
-                dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes") { _, _ ->
+                dialog.setCancelable(false)
+                dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Delete") { _, _ ->
                     reference.child(MySharedPreferences.userId).removeValue()
                     MySharedPreferences.userId = "empty"
                     MyData.closeAccount.postValue(true)
                 }
-                dialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No") { _, _ ->
+                dialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancel") { _, _ ->
                     dialog.cancel()
                 }
                 dialog.show()
             }
             btnLogout.setOnClickListener {
-                MySharedPreferences.userId = "empty"
-                MyData.closeAccount.postValue(true)
+                val dialog = AlertDialog.Builder(requireContext()).create()
+                dialog.setMessage("Are you sure you want to log out?")
+                dialog.setCancelable(false)
+                dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Log out") { _, _ ->
+                    MySharedPreferences.userId = "empty"
+                    MyData.closeAccount.postValue(true)
+                }
+                dialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancel") { _, _ ->
+                    dialog.cancel()
+                }
+                dialog.show()
             }
             btnEdit.setOnClickListener {
                 val dialog = AlertDialog.Builder(requireContext()).create()
                 val dialogItem = ItemEditDialogBinding.inflate(layoutInflater)
+                dialog.setCancelable(false)
                 dialogItem.apply {
                     btnSaveL.observe(viewLifecycleOwner) {
                         if (it) {
